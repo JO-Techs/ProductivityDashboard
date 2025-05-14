@@ -1,0 +1,146 @@
+/* Main Dashboard Styles */
+body {
+    background-color: #fdf6fb; /* light orchid background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c2c2c;
+}
+
+.card {
+    box-shadow: 0 2px 6px rgba(106, 13, 173, 0.1); /* light purple shadow */
+    border-radius: 8px;
+    border: none;
+    transition: transform 0.2s;
+    background-color: #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card-header {
+    border-radius: 8px 8px 0 0 !important;
+    font-weight: 600;
+    background-color: #f4e6f9; /* orchid light */
+    color: #6A0DAD; /* dark orchid */
+}
+
+/* To-Do List Styles */
+#todo-list .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-color: #e0cce6; /* soft border */
+}
+
+.completed-task {
+    text-decoration: line-through;
+    color: #9b6cb8;
+}
+
+/* Calendar Styles */
+#calendar {
+    height: 400px;
+}
+
+.fc-event {
+    cursor: pointer;
+    background-color: #DA70D6; /* orchid */
+    border: none;
+    color: #fff;
+}
+
+/* Notes Styles */
+#notes-list .note-card {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f1fa;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(106, 13, 173, 0.05);
+    border-left: 4px solid #6A0DAD;
+}
+
+/* Bookmarks Styles */
+#bookmarks-list .bookmark-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #f4e6f9;
+    border-radius: 4px;
+}
+
+/* Shopping List Styles */
+#shopping-list .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-color: #e0cce6;
+}
+
+.purchased-item {
+    text-decoration: line-through;
+    color: #b186c9;
+}
+
+/* Projects Styles */
+.project-card {
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(106, 13, 173, 0.05);
+    background-color: #fdf6fb;
+    border-left: 5px solid #6A0DAD;
+}
+
+.project-card h5 {
+    margin-bottom: 10px;
+    color: #4b0a81;
+}
+
+.project-tasks {
+    margin-top: 10px;
+}
+
+.status-not-started {
+    border-left: 5px solid #d63384; /* pinkish-purple */
+}
+
+.status-in-progress {
+    border-left: 5px solid #DA70D6; /* orchid */
+}
+
+.status-completed {
+    border-left: 5px solid #198754; /* green */
+}
+
+.status-on-hold {
+    border-left: 5px solid #adb5bd; /* gray */
+}
+
+/* Button Theme */
+.btn-orchid {
+    background-color: #DA70D6;
+    color: #fff;
+    border: none;
+}
+
+.btn-orchid:hover {
+    background-color: #6A0DAD;
+    color: #fff;
+}
+
+/* Form Focus Styles */
+.form-control:focus, .form-select:focus {
+    border-color: #DA70D6;
+    box-shadow: 0 0 0 0.2rem rgba(218, 112, 214, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px;
+    }
+}
