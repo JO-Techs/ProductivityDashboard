@@ -46,6 +46,30 @@ class ProjectTaskViewSet(viewsets.ModelViewSet):
 def dashboard(request):
     return render(request, 'dashboard/dashboard.html')
 
+def home(request):
+    return render(request, 'dashboard/home.html')
+
+def todos(request):
+    return render(request, 'dashboard/todos.html')
+
+def notes(request):
+    return render(request, 'dashboard/notes.html')
+
+def bookmarks(request):
+    return render(request, 'dashboard/bookmarks.html')
+
+def shopping(request):
+    return render(request, 'dashboard/shopping.html')
+
+def planner(request):
+    return render(request, 'dashboard/planner.html')
+
+def projects(request):
+    return render(request, 'dashboard/projects.html')
+
+def calendar(request):
+    return render(request, 'dashboard/calendar.html')
+
 # API Overview
 @api_view(['GET'])
 def api_overview(request):

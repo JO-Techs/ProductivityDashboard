@@ -683,3 +683,139 @@ function getCookie(name) {
     }
     return cookieValue;
 }
+// ...existing code...
+// Refactored initialization for multi-page support
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Only initialize features if their main element exists on the page
+    if (document.getElementById('calendar')) {
+        initCalendar();
+    }
+    if (document.getElementById('todo-list')) {
+        loadTodos();
+    }
+    if (document.getElementById('notes-list')) {
+        loadNotes();
+    }
+    if (document.getElementById('bookmarks-list')) {
+        loadBookmarks();
+    }
+    if (document.getElementById('shopping-list')) {
+        loadShoppingItems();
+    }
+    if (document.getElementById('planner-date')) {
+        loadDailyPlan();
+    }
+    if (document.getElementById('projects-list')) {
+        loadProjects();
+    }
+
+    // Set up event listeners only for elements present on the page
+    setupEventListeners();
+});
+
+// ...existing code...
+
+// Setup Event Listeners
+function setupEventListeners() {
+    // To-Do form
+    const addTodoBtn = document.getElementById('add-todo');
+    if (addTodoBtn) {
+        addTodoBtn.addEventListener('click', function() {
+            const todoInput = document.getElementById('todo-input');
+            const todoText = todoInput.value.trim();
+            if (todoText) {
+                createTodo({ title: todoText, completed: false });
+                todoInput.value = '';
+            }
+        });
+    }
+
+    // Note form
+    const saveNoteBtn = document.getElementById('save-note');
+    if (saveNoteBtn) {
+        saveNoteBtn.addEventListener('click', function() {
+            const titleInput = document.getElementById('note-title');
+            const contentInput = document.getElementById('note-content');
+            const title = titleInput.value.trim();
+            const content = contentInput.value.trim();
+            if (title && content) {
+                createNote({ title: title, content: content });
+            }
+        });
+    }
+
+    // Bookmark form
+    const addBookmarkBtn = document.getElementById('add-bookmark');
+    if (addBookmarkBtn) {
+        addBookmarkBtn.addEventListener('click', function() {
+            const titleInput = document.getElementById('bookmark-title');
+            const urlInput = document.getElementById('bookmark-url');
+            const title = titleInput.value.trim();
+            const url = urlInput.value.trim();
+            if (title && url) {
+                createBookmark({ title: title, url: url });
+            }
+        });
+    }
+
+    // Shopping item form
+    const addShoppingItemBtn = document.getElementById('add-shopping-item');
+    if (addShoppingItemBtn) {
+        addShoppingItemBtn.addEventListener('click', function() {
+            const itemInput = document.getElementById('shopping-item');
+            const quantityInput = document.getElementById('shopping-quantity');
+            const name = itemInput.value.trim();
+            const quantity = parseInt(quantityInput.value) || 1;
+            if (name) {
+                createShoppingItem({ name: name, quantity: quantity, purchased: false });
+            }
+        });
+    }
+
+    // Daily planner form
+    const savePlannerBtn = document.getElementById('save-planner');
+    if (savePlannerBtn) {
+        savePlannerBtn.addEventListener('click', saveDailyPlan);
+    }
+
+    // Project form
+    const saveProjectBtn = document.getElementById('save-project');
+    if (saveProjectBtn) {
+        saveProjectBtn.addEventListener('click', function() {
+            const nameInput = document.getElementById('project-name');
+            const descriptionInput = document.getElementById('project-description');
+            const startDateInput = document.getElementById('project-start-date');
+            const endDateInput = document.getElementById('project-end-date');
+            const statusInput = document.getElementById('project-status');
+            const name = nameInput.value.trim();
+            const description = descriptionInput.value.trim();
+            const startDate = startDateInput.value;
+            const endDate = endDateInput.value;
+            const status = statusInput.value;
+            if (name) {
+                const project = {
+                    name: name,
+                    description: description,
+                    start_date: startDate,
+                    end_date: endDate || null,
+                    status: status
+                };
+                createProject(project);
+                // Reset form
+                nameInput.value = '';
+                descriptionInput.value = '';
+                startDateInput.value = '';
+                endDateInput.value = '';
+                statusInput.value = 'not_started';
+            }
+        });
+    }
+
+    // Date change for daily planner
+    const plannerDateInput = document.getElementById('planner-date');
+    if (plannerDateInput) {
+        plannerDateInput.addEventListener('change', loadDailyPlan);
+    }
+}
+// ...existing code...
